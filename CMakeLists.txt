@@ -122,7 +122,7 @@ list(APPEND CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/builds/cmake)
 
 
 
-file(GLOB PUBLIC_HEADERS "include/ft2build.h" "include/freetype/*.h")
+file(GLOB PUBLIC_HEADERS  "include/freetype/*.h")
 file(GLOB PUBLIC_CONFIG_HEADERS "include/freetype/config/*.h")
 file(GLOB PRIVATE_HEADERS "include/freetype/internal/*.h")
 
@@ -236,8 +236,11 @@ install(TARGETS
       ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
       FRAMEWORK DESTINATION ${CMAKE_INSTALL_LIBDIR})
 
+install(FILES "include/ft2build.h" DESTINATION include/freetype2)
 install(FILES ${PUBLIC_HEADERS} DESTINATION include/freetype2/freetype)
 install(FILES ${PUBLIC_CONFIG_HEADERS} DESTINATION include/freetype2/freetype/config)
+
+
 
 set(INSTALL_CONFIGDIR ${CMAKE_INSTALL_LIBDIR}/cmake/FreetypeD3)
 
